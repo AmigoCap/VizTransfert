@@ -5,10 +5,14 @@ Le projet
 Ce répertoire permet à partir d'une base de données d'images contenant 3 classes différentes d'entraîner un modèle de réseaux de GAN et de générer les images sur la base de la même style par le modèle entraînée.\
 À partir d'une base de données contenant 3 classes d'images de tailles et de formats quelconques, on redimensionne chaque image à la taille 256x256 et on convertit en JPG. Et puis, on extrait les contours sous forme de image noir et blanc. En fin, on les combine comme le jeu de données d’entraîner et du test.\
 On a mis 4 dossiers dans ce répertoire :\
-		•/google_pictures contient 3 types des images concernées(bar chart,line chart et scatter plot) obtenu par git googlescrapper.
-		•/data contient 3 dossiers de images de bar chart, pour entraîner le réseau de GAN, et puis tester le modèle finale.
-		•/pix2pix-master est ce que git pix2pix contient.
-		•/résultat contient le premier résultat obtenu à la base du jeu de donnée dans /data (entraîné par git pix2pix-master en batch_size=1 sur 6 images Err_G: 1.1576  Err_D: 0.5484  ErrL1: 0.0752).
+
+•/google_pictures contient 3 types des images concernées(bar chart,line chart et scatter plot) obtenu par git googlescrapper.
+
+•/data contient 3 dossiers de images de bar chart, pour entraîner le réseau de GAN, et puis tester le modèle finale.
+
+•/pix2pix-master est ce que git pix2pix contient.
+
+•/résultat contient le premier résultat obtenu à la base du jeu de donnée dans /data (entraîné par git pix2pix-master en batch_size=1 sur 6 images Err_G: 1.1576  Err_D: 0.5484  ErrL1: 0.0752).
 		
 À partir du dossier /data, on répartir nos images. Celui-ci sera lu pour entraîner le réseau de neurones. À la fin de l'entraînement, qui peut être plus ou moins long suivant les paramètres que vous avez choisi, le modèle est enregistré.
 Il est ensuite utilisé automatiquement sur le dossier /test crée ultérieurement et en créeant un dossier results. Dans son sous-dossier latest_net_G_val, vous pouvez voir les résultats dans le web index.html.
