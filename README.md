@@ -4,7 +4,7 @@ Le projet
 -----
 Ce répertoire permet à partir d'une base de données d'images contenant 3 classes différentes d'entraîner un modèle de réseaux de GAN et de générer les images sur la base de la même style par le modèle entraînée.\
 À partir d'une base de données contenant 3 classes d'images de tailles et de formats quelconques, on redimensionne chaque image à la taille 256x256 et on convertit en JPG. Et puis, on extrait les contours sous forme de image noir et blanc. En fin, on les combine comme le jeu de données d’entraîner et du test.\
-On a mis 4 dossiers dans ce répertoire :\
+On a mis 4 dossiers dans ce répertoire :
 
 •/google_pictures contient 3 types des images concernées(bar chart,line chart et scatter plot) obtenu par git googlescrapper.
 
