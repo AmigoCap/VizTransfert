@@ -30,17 +30,18 @@ for sp in splits:
         path_src = os.path.join(img_fold_src, name_src)
 
         if os.path.isfile(path_src):
-            # Changer le nom du type de l"image pour eviter l"error de cv
+            # Changer le nom du type de l"image pour eviter un bug de cv
             filename_old = os.path.splitext(path_src)[0]
             filetype_old = os.path.splitext(path_src)[1]
             Newdir = os.path.join(img_fold_src, filename_old + '.jpg')
             os.rename(path_src, Newdir)
             name_dst = name_src
+            print("Processing: %s" % name_src)
             path_dst = os.path.join(img_fold_dst, name_dst)
-            img_src = cv2.imread(path_src, cv2.IMREAD_COLOR)
-            img_R1 = cv2.resize(img_src, (128, 128), interpolation=cv2.INTER_CUBIC)
+            img_src = cv2.imread(Newdir, cv2.IMREAD_COLOR)
+            img_R1 = cv2.resize(img_src, (128, 128), interpolation=cv2.INTER_LINEAR)
             img_G = cv2.GaussianBlur(img_src, (3, 3), 0)
-            img_R2 = cv2.resize(img_G, (128, 128), interpolation=cv2.INTER_CUBIC)
+            img_R2 = cv2.resize(img_G, (128, 128), interpolation=cv2.INTER_LINEAR)
             img_C = cv2.Canny(img_R2, 50, 150)
             cv2.imwrite(path_dst, img_C)
             img = cv2.imread(path_dst)
@@ -60,6 +61,6 @@ for sp in splits:
             cv2.imwrite(path_dst, img_dst)
 
 # --fold_src
-# C:\Users\olivier\Desktop\S8\PAR\Jeudedonnee\Git2Olivier\PAR\google_pictures\bar+chart\ff
+# C:\Users\olivier\Desktop\S8\PAR\Jeudedonnee\Git2Olivier\PAR\google_pictures\bar+chart C:\Users\olivier\Desktop\S8\PAR\Viztransfer\VizTransfert\dataset\google
 # --fold_dst
 # C:\Users\olivier\Desktop\S8\PAR\Jeudedonnee\bar+chart_contour

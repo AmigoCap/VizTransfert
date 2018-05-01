@@ -73,7 +73,7 @@ def error(link):
 
 
 def download_image(link, image_data):
-    download_image.delta += 1
+
     # Use a random user agent header for bot id
     ua = UserAgent()
     headers = {"User-Agent": ua.random}
@@ -88,7 +88,9 @@ def download_image(link, image_data):
             type = "jpeg"
         if type.lower() not in ["jpeg", "jfif", "exif", "tiff", "gif", "bmp", "png", "webp", "jpg"]:
             type = "jpg"
-        if type == "png":
+        #Download png and jpg image
+        if type == "png" :
+            download_image.delta += 1
             # Download the image
             print("[%] Downloading Image #{} from {}".format(download_image.delta, link))
             try:
@@ -169,7 +171,7 @@ if __name__ == "__main__":
         r = requests.get("https://www.google.com" + link.get("href"), headers=headers)
         title = str(fromstring(r.content).findtext(".//title"))
         link = title.split(" ")[-1]
-        if download_image.delta>=20:
+        if download_image.delta>=100:
             break
         try:
             download_image(link, images[link])
