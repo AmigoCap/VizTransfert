@@ -20,20 +20,17 @@ Comme chaque variable intermédiaire est enregistrée (modèle GAN entraîné), 
 
 Lancement
 --------
-Afin d'installer l'ensemble des packages nécessaires au fonctionnement du script, exécuter resize.cpp pour changer la taille des images. Et puis exécuter findcontour.cpp pour extraire les contours sous forme d’image blanc et noir. Dans le terminal, créér un dossier /path/to/data avec sous-dossiers A et B. A et B doit contenir ses propres sous-dossiers train, val, test, etc. Mettre les images du style A dans /path/to/data/A/train. Mettre les images du style B dans /path/to/data/B/train. Répéter pour les autres (val, test, etc). Et puis executer la commande ci-dessous:
+Afin d'installer l'ensemble des packages nécessaires au fonctionnement du script, exécuter construire.py pour changer la taille des images, extraire les contours sous forme d’image blanc et noir et combiner les pairs des images originales et les images de contour dans une series de images. Il s'agit de créér un dossier /data/src. Le dossier src doit contenir ses propres sous-dossiers train, val, test, etc. Mettre les images originales dans /data/src/train, /data/src/val et /data/src/test. Et puis executer la commande ci-dessous:
 
-`python combine_A_and_B.py --fold_A /path/to/data/A --fold_B /path/to/data/B --fold_AB /path/to/data`
+`python construire.py --fold_src data\src --fold_dst data\dst
 
-Après l'exécution du script, 3 fichiers "test", “train” et “val” sont créés. Celui-ci contient le jeu de donnée pour être entraîné et testé.
+Après l'exécution du script, 3 fichiers "test", “train” et “val” sont créés dans data\dst. Celui-ci contient le jeu de donnée pour être entraîné et testé.
 En fin, on suit le lancement de git pix2pix à obtenir le résultat.
 
 Scrapping
 --------
-Nous utiliserons le script issu du git image-scrapers afin de peupler notre base de données. Celui-ci permet de récupérer des images issues de google.
+Nous utiliserons le script issu du git image-scrapers afin de peupler notre base de données. Celui-ci permet de récupérer des images issues de google. Les images va être mis dans le fichier dataset/google.
 
-Traitement d'image
-----------
-Les 3 fichiers resize.cpp, findcontour.cpp et combine_A_and_B.py permettent d'effectuer un traitement préliminaire sur la base de données, ce qui nous permet d'avoir un ensemble d'images au bon format pour notre réseau de neurones. Les deux premiers peut être utilisé directement ou en changant les paramètres dans le code. Le dernier doît être utilisé selon l’implémentation au-dessus.
 
 Auteurs
 -------------
