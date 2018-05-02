@@ -8,7 +8,7 @@ On a mis 4 dossiers dans ce répertoire :
 
 •/google_pictures contient 3 types des images concernées(bar chart,line chart et scatter plot) obtenu par git googlescrapper.
 
-•/data contient 3 dossiers de images de bar chart, pour entraîner le réseau de GAN, et puis tester le modèle finale.
+•/data/dst contient 3 dossiers de images traitées de bar chart, pour entraîner le réseau de GAN, et puis tester le modèle finale.
 
 •/pix2pix-master est ce que git pix2pix contient.
 
@@ -20,16 +20,26 @@ Comme chaque variable intermédiaire est enregistrée (modèle GAN entraîné), 
 
 Lancement
 --------
-Afin d'installer l'ensemble des packages nécessaires au fonctionnement du script, exécuter construire.py pour changer la taille des images, extraire les contours sous forme d’image blanc et noir et combiner les pairs des images originales et les images de contour dans une series de images. Il s'agit de créér un dossier /data/src. Le dossier src doit contenir ses propres sous-dossiers train, val, test, etc. Mettre les images originales dans /data/src/train, /data/src/val et /data/src/test. Et puis executer la commande ci-dessous:
-
-`python construire.py --fold_src data\src --fold_dst data\dst
-
-Après l'exécution du script, 3 fichiers "test", “train” et “val” sont créés dans data\dst. Celui-ci contient le jeu de donnée pour être entraîné et testé.
-En fin, on suit le lancement de git pix2pix à obtenir le résultat.
 
 Scrapping
 --------
 Nous utiliserons le script issu du git image-scrapers afin de peupler notre base de données. Celui-ci permet de récupérer des images issues de google. Les images va être mis dans le fichier dataset/google.
+
+Traitement d'image
+--------
+Afin d'installer l'ensemble des packages nécessaires au fonctionnement du script, exécuter construire.py pour changer la taille des images, extraire les contours sous forme d’image blanc et noir et combiner les pairs des images originales et les images de contour dans une series de images. Il s'agit de créér un dossier /data/src. Le dossier src doit contenir ses propres sous-dossiers train, val, test, etc. Mettre les images originales dans /data/src/train, /data/src/val et /data/src/test. Et puis executer la commande ci-dessous:
+
+`python construire.py --fold_src data\src --fold_dst data\dst`
+
+Après l'exécution du script, 3 fichiers "test", “train” et “val” sont créés dans data\dst. Celui-ci contient le jeu de donnée de taille 256x128 pour une paire des images pour être entraîné et testé. 
+En fin, on suit le lancement de git pix2pix à obtenir le résultat.
+
+
+
+CycleGAN
+--------
+Suivi l'implementation de README.md dans pix2pix-master.
+
 
 
 Auteurs
