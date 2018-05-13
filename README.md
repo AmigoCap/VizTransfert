@@ -10,9 +10,11 @@ On a mis 4 dossiers dans ce répertoire :
 
 •/data/dst contient 3 dossiers de images traitées de bar chart, pour entraîner le réseau de GAN, et puis tester le modèle finale.
 
-•/pix2pix-master est ce que git pix2pix contient.
+•/pix2pix-master est ce que https://github.com/phillipi/pix2pix contient ecrit en lua.
 
-•/résultat contient le premier résultat obtenu à la base du jeu de donnée dans /data (entraîné par git pix2pix-master en batch_size=1 sur 6 images Err_G: 1.1576  Err_D: 0.5484  ErrL1: 0.0752).
+•/pytorch-CycleGAN-and-pix2pix est ce que https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix contient ecrit en python.
+
+•/résultat contient les résultats obtenus à la base du jeu de donnée.
 		
 À partir du dossier /data, on répartir nos images. Celui-ci sera lu pour entraîner le réseau de neurones. À la fin de l'entraînement, qui peut être plus ou moins long suivant les paramètres que vous avez choisi, le modèle est enregistré.
 Il est ensuite utilisé automatiquement sur le dossier /test crée ultérieurement et en créeant un dossier results. Dans son sous-dossier latest_net_G_val, vous pouvez voir les résultats dans le web index.html.
@@ -36,9 +38,9 @@ En fin, on suit le lancement de git pix2pix à obtenir le résultat.
 
 
 
-CycleGAN
+Pix2Pix
 --------
-Suivi l'implementation de README.md dans pix2pix-master.
+Suivi l'implementation de README.md dans le fichier pix2pix-master(lua) ou celle dans le fichier pytorch-CycleGAN-and-pix2pix(python).
 
 
 
